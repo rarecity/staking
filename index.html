@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RARECITY</title>
+  <script src="https://unpkg.com/anchor-link@3"></script>
+  <script src="https://unpkg.com/anchor-link-browser-transport@3"></script>
+  <script src="waxjs.js"></script>
+  <link rel="stylesheet" href="mainstyle.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Oswald" />
+</head>
+<body id="body">
+    <div id="toast" style="visibility: hidden"></div>
+    <div class="nav-container">
+        <div class="wrapper">
+            <nav>
+                <div class="logo">
+                    <a href="#">
+                        <img class="logoimg" src="./assets/Logo.png" alt="">
+                    </a>
+                </div>
+                <ul class="nav-items">
+                    <li>
+                        <div id="blc" class="blc" style="display: none;">
+                            <input class="img" src="./assets/Token.png" type="image"><br>
+                            <p id="balance" class="balance">0.0000 RARC</p>
+                        </div>
+                    </li>
+                    <li>
+                        <input class="btn" id="shop" src="./assets/shop.png" style="display: none;" onclick="switchshop(true)" type="image">
+                        <input class="btn" id="stakingbar" src="./assets/stakingbtn.png" style="display: none;" onclick="switchshop(false)" type="image">
+                    </li>
+                    <li>
+                        <input class="btn" id="claim" style="display: none;" src="./assets/Claim.png" onclick="claimbalance()" type="image">
+                    </li>
+                    <li>
+                        <input class="btn" id="loggedout" src="./assets/Login.png" onclick="WalletListVisible(!0)" type="image">
+                        <input class="btn" id="loggedin" src="./assets/Logout.png" onclick="logout()" style="display: none;" type="image">
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div class="header-container">
+        <div class="sidebar">
+            <div id="sideContent">
+                <p class="sidebar-title">Available Collections</p>
+                <div class="sidebar-title"><div id='sidebar-content'></div>
+            </div>
+        </div>
+        </div></div>
+            <div class="main-content">
+                <div id="loader" style="display: none;">
+                    <p class="loadingText">Loading ...</p>
+                    <div class="lds-circle"><div></div></div>
+                </div>
+                <div id="lvlloader" style="display: none;">
+                    <img id="lvlimg" style="" src="https://media4.giphy.com/media/St3iie3VZ65VHkobqc/giphy.gif?cid=ecf05e47r7wicv168mlzdsa4bzdvh8jtxpzpodg5g5a69q5j&rid=giphy.gif&ct=g">
+                    <p class="loadingText">Loading ...</p>
+                    <div class="lds-circle"><div></div></div>
+                </div>
+                <div class="secondheader">
+                    <ul>
+
+
+                        <li>
+                            <div id="staking" style="display: none;">
+                                <p class="loadingText" >Stake Power: <span id="stkpowerid" type="value">0.0000 RAREC</span></p>
+                                <p class="loadingText">Time to claim: <span id="timetor" type="value">00:00</span></p>
+                            <input class="stakeAllbtn btn" id = "stkall"src="./assets/StakeAll.png" onclick="stakeall()" type="image">
+                            <input class="stakeAllbtn btn" src="./assets/wallet.png" onclick="switchstaked(false)" type="image">
+                            <input class="stakeAllbtn btn" src="./assets/inv.png" onclick="switchstaked(true)" type="image">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="content_wrapper">
+                    <div class="maindiv" id="maindiv"></div>
+                    <div id="walletlist" style="visibility: hidden">
+                        <button class="close" onclick="WalletListVisible(!1)">x</button>
+                        <div style="margin-top: 20px;color: #314780; font-size: 26px;font-family: Arial, Helvetica, sans-serif;font-weight: 600;">To continue please<p>select an option</p></div>
+                        <input class="anchor" id="anchor" src="./assets/anchor.png" onclick='selectWallet("anchor")' type="image"><br>
+                        <input class="wcw" id="wcw" src="./assets/wcw.png" onclick='selectWallet("cloud")' type="image">
+                    </div>
+                    <div id="message" style="visibility: hidden">
+                        <div><button class="close" onclick="HideMessage()">x</button></div>
+                        <div id="messagecontent"></div>
+                    </div>               
+                    </div>
+                </div>
+    <script> 
+        const contract = "rarecitydapp";
+        const marketContract = "rarecitymrkt";
+        const symbol = "RARC";
+    </script>
+    <script src="./main.js"></script>
+    </div>
+</body>
+</html>
