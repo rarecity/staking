@@ -607,7 +607,7 @@ async function GetBalance() {
         balance = parseFloat(body.rows[j].balance).toFixed(4);
     }
   }
-
+  document.getElementById('balance').innerHTML = balance.toLocaleString('en-US') + " " + symbol;
   return balance;
 
 }
