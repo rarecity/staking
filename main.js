@@ -147,9 +147,9 @@ async function buypack(template,price,qty){
   if (loggedIn) {
 
     HideMessage();
-
     try {
       totalPrice = (price * qty).toFixed(4);
+      console.log(totalPrice);
       const result = await wallet_transact([{
         account: "rarecitytokn",
         name: "transfer",
@@ -722,13 +722,16 @@ function PopulateShop(pack_data){
     buyqty.min = "1";
     buyqty.max = "5";
     buyqty.value = "1";
-
+    console.log(rate.textContent);
     let btn = document.createElement('BUTTON');
     btn.id = pack_data[index].id;
     btn.className = "stkbtn";
     btn.textContent = "BUY";
+    let x=btn.id;
+    let g= parseFloat(pack_data[index].price);
+    let z=parseFloat(buyqty.value);
     btn.onclick = async function buy(){
-      buypack(btn.id,rate.textContent,buyqty.value);
+      buypack(x,g,z);
     }
 
     div4.appendChild(rate);div4.appendChild(sym);
